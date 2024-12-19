@@ -10,7 +10,7 @@ public class LibraryUI {
 	
 	LibraryUI(){
 		scanner = new Scanner(System.in);
-		library = new Library();
+		library = Library.getInstance();
 	}
 	
 	public void run() {

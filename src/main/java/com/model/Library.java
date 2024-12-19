@@ -5,10 +5,19 @@ public class Library {
 	private Items items;
 	private Users users;
 	private User currentUser;
+	private static Library library;
 	
-	public Library() {
+	private Library() {
 		items = Items.getInstance();
 		users = Users.getInstance();
+	}
+
+	public static Library getInstance() {
+		if(library == null){
+			library = new Library();
+		}
+
+		return library;
 	}
 	
 	//creates a new user account
@@ -57,5 +66,6 @@ public class Library {
 	
 	public void logout() {
 		users.saveUsers();
+		library = null;
 	}
 }
